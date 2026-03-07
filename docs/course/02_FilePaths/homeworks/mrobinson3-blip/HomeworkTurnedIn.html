@@ -9,7 +9,7 @@
 <meta name="author" content="Mikella Robinson">
 <meta name="dcterms.date" content="2026-03-02">
 
-<title>Homework Week 1 – Cytometry in R</title>
+<title>Homework Week 2 – Cytometry in R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -179,7 +179,7 @@ gtag('config', 'G-LZ35J3XE4D', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Homework Week 1</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Homework Week 2</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -306,12 +306,11 @@ gtag('config', 'G-LZ35J3XE4D', { 'anonymize_ip': true});
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#installing-and-loading-packages" id="toc-installing-and-loading-packages" class="nav-link active" data-scroll-target="#installing-and-loading-packages">Installing and Loading Packages</a></li>
-  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">Homework</a>
+  <li><a href="#homework" id="toc-homework" class="nav-link active" data-scroll-target="#homework">Homework</a>
   <ul class="collapse">
   <li><a href="#problem-1" id="toc-problem-1" class="nav-link" data-scroll-target="#problem-1">Problem 1</a></li>
   <li><a href="#problem-2" id="toc-problem-2" class="nav-link" data-scroll-target="#problem-2">Problem 2</a></li>
@@ -325,7 +324,7 @@ gtag('config', 'G-LZ35J3XE4D', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Homework Week 1</h1>
+<h1 class="title">Homework Week 2</h1>
 </div>
 
 
@@ -354,323 +353,99 @@ gtag('config', 'G-LZ35J3XE4D', { 'anonymize_ip': true});
 </header>
 
 
-<section id="installing-and-loading-packages" class="level1">
-<h1>Installing and Loading Packages</h1>
-<p>Install packages (see notes). Remember all require ““. Load packages.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load CRAN packages: install.packages("")</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xml2)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr2)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Rtsne)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(uwot)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#load bioconductor packages: install("")</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(PeacoQC)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flowCore)</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flowWorkspace)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggcyto)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openCyto)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FlowSOM)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flowGate)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(CytoML)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">#load github packages: install_github("username/package")</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(remotes)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(CytoNorm)</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cyCombine)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
 <section id="homework" class="level1">
 <h1>Homework</h1>
-<p>Details can be found <a href="https://umgcccfcsr.github.io/CytometryInR/course/01_InstallingRPackages/#take-home-problems">here</a></p>
-<p>See screenshot: <img src="images/homeworkscreenshot.png" class="img-fluid"></p>
+<p>Details can be found <a href="https://umgcccfcsr.github.io/CytometryInR/course/02_FilePaths/">here</a></p>
+<p>See screenshot: <img src="images/Screenshot 2026-03-04 at 10.23.06 AM.png" class="img-fluid"></p>
 <section id="problem-1" class="level2">
 <h2 class="anchored" data-anchor-id="problem-1">Problem 1</h2>
-<p>What is in bioconductor package PeacoQC?</p>
-<p>PeacoQC includes functions for flow or mass cytometry data quality control (QC) and data pre-processing. It functions in the following order: removing margins, compensating, transforming, and assessing QC, returning a QC plot and cleaned flow set in a new fcs file.</p>
-<p>Details can be found <a href="https://www.bioconductor.org/packages/release/bioc/html/PeacoQC.html">here</a> or can be found using r:</p>
+<p>I couldn’t figure out a way to find my USB without using the / in “/Volumes”. I wanted to make this available to non-Macs, but when I dropped the /, I couldn’t reach Volumes anymore.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(PeacoQC)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#load supporting documents</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="st">"PeacoQC"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#list all functions</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>(<span class="st">"package:PeacoQC"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Create folder on FC USB</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">path =</span> <span class="st">"/Volumes"</span>,<span class="at">full.names=</span><span class="cn">TRUE</span>, <span class="at">recursive =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "PeacoQC"        "PeacoQCHeatmap" "PlotPeacoQC"    "RemoveDoublets"
-[5] "RemoveMargins" </code></pre>
+<pre><code>[1] "/Volumes/com.apple.TimeMachine.localsnapshots"
+[2] "/Volumes/ds"                                  
+[3] "/Volumes/FC"                                  
+[4] "/Volumes/LaCie"                               
+[5] "/Volumes/Macintosh HD"                        </code></pre>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>NewUSBFolderLocation <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">"/Volumes"</span>, <span class="st">"FC"</span>, <span class="st">"TargetFolder"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">dir.exists</span>(NewUSBFolderLocation)){</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dir.create</span>(NewUSBFolderLocation)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#identify file location</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>DataLocation <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">"Week2"</span>, <span class="st">"data"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>fcsfiles<span class="ot">&lt;-</span><span class="fu">list.files</span>(<span class="at">path =</span> DataLocation, <span class="at">pattern =</span> <span class="st">".fcs"</span>, <span class="at">full.names=</span><span class="cn">TRUE</span>, <span class="at">recursive=</span><span class="cn">FALSE</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>usbfiles<span class="ot">&lt;-</span><span class="fu">list.files</span>(<span class="at">path =</span> NewUSBFolderLocation, <span class="at">pattern =</span> <span class="st">".fcs"</span>, <span class="at">full.names=</span><span class="cn">TRUE</span>, <span class="at">recursive=</span><span class="cn">FALSE</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(usbfiles)<span class="sc">==</span><span class="dv">0</span>){</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">file.copy</span>(<span class="at">from=</span>fcsfiles, <span class="at">to=</span>NewUSBFolderLocation)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="problem-2" class="level2">
 <h2 class="anchored" data-anchor-id="problem-2">Problem 2</h2>
-<p>There are 69 flow cytometry packages in Bioconductor as found <a href="https://www.bioconductor.org/packages/release/BiocViews.html#___FlowCytometry">here</a>.</p>
-<p>I downloaded these into excel, filtered by name, and used COUNTIF with partial name recognition (due to co-authors) to count. I didn’t know the partial search functions with COUNTIF, so that was fun to learn. See screenshots: <img src="images/BioconductorFlowPkgs.png" class="img-fluid"></p>
-<p>I think I could do this in R, too, but I will have to come back later to try that.</p>
-<p>Mike Jiang (10) followed by collaborator Greg Finak (6)</p>
-<p>I would be interested in FlowCore, FlowSOM, PeacoQC, and flowMeans, which are bascially any I have heard of before. That is to say, if I hear of it, I would like to learn more.</p>
+<p>Split path into individual folders</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/Users/chouse/Desktop/CytometryInR/course/02_FilePaths/homeworks/mrobinson3-blip"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#list.dirs(path=".",full.names=TRUE, recursive = TRUE) this lists but doesn't separate</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>path<span class="ot">&lt;-</span><span class="fu">file.path</span>(<span class="st">"Week2"</span>,<span class="st">"data"</span>,<span class="st">"target"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#found here https://stackoverflow.com/questions/29214932/split-a-file-path-into-folder-names-vector</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>split_path <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="cf">if</span> (<span class="fu">dirname</span>(x)<span class="sc">==</span>x) x <span class="cf">else</span> <span class="fu">c</span>(<span class="fu">basename</span>(x),<span class="fu">split_path</span>(<span class="fu">dirname</span>(x)))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">split_path</span>(path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "target" "data"   "Week2"  "."     </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">split_path</span>(<span class="st">"~"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "chouse" "Users"  "/"     </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">split_path</span>(<span class="fu">getwd</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "mrobinson3-blip" "homeworks"       "02_FilePaths"    "course"         
+[5] "CytometryInR"    "Desktop"         "chouse"          "Users"          
+[9] "/"              </code></pre>
+</div>
+</div>
 </section>
 <section id="problem-3" class="level2">
 <h2 class="anchored" data-anchor-id="problem-3">Problem 3</h2>
-<p>What is in CRAN package pak? Linked <a href="https://pak.r-lib.org/index.html">here</a> or <a href="https://cloud.r-project.org/web/packages/pak/index.html">here for CRAN</a>.</p>
-<p>pak is a package that can install from CRAN, Bioconductor, GitHub, URLs, git repositories, and local files. It is an alternative to the install.packages(““) for CRAN, install(”“) for Bioconductor, and the install_github(”username/package”) for GitHub. It is fast – it performs HTTP queries concurrently and caches backup. It is safe – it auto-installs missing dependencies and corrects CRAN errors. It is convenient – it is self-contained and installs from multiple sources.</p>
+<p>Find fcs files in FlowSOM and flowWorkspace</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("pak")</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pak)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#pak::pkg_install("broom")</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#pak::pkg_install("cytoMEM")</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cytoMEM)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#install GitHub package "DillonHammill/CytoExploreR"</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#pak::pkg_install("DillonHammill/CytoExploreR") failed, needs superheat</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Screenshot of error 1: <img src="images/initialerror.png" class="img-fluid"></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#pak::pkg_install("superheat")</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(superheat) </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#pak::pkg_install("DillonHammill/CytoExploreR") still failed, same error</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#pak::pkg_install("DillonHammill/CytoExploreR",upgrade = TRUE) failed</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#pak::pkg_install("DillonHammill/CytoExploreR",dependences = NA) failed</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#pak::pkg_install("DillonHammill/CytoExploreR",dependences = TRUE) failed</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#pak::pkg_install("DillonHammill/CytoExploreR",ask = TRUE) failed</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#is it having an issue with github?</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#library(remotes)</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#pak::pkg_install("DillonHammill/CytoExploreR",ask = TRUE) still failed</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#pkg_deps_explain("DillonHammill/CytoExploreR", "superheat") failed</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">#pak(pkg = "DillonHammill/CytoExploreR")</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co">#resorted to normal install function</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">#install_github("DillonHammill/CytoExploreR") failed, needs EmbedSOM</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co">#pak::pkg_install("EmbedSOM") failed, google says dropped from CRAN</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Screenshot of error 2: <img src="images/seconderror.png" class="img-fluid"></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#pak::pkg_install("exaexa/EmbedSOM")</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(EmbedSOM)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#pak::pkg_install("DillonHammill/CytoExploreR") still failed</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#install_github("DillonHammill/CytoExploreR",force = TRUE)</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(CytoExploreR)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#initially failed, but reloaded R and tried it again and it seemed to work as seen by session info below</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">session_info</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FlowSOM)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">system.file</span>(<span class="st">"extdata"</span>, <span class="at">package =</span> <span class="st">"FlowSOM"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>─ Session info ───────────────────────────────────────────────────────────────
- setting  value
- version  R version 4.5.2 (2025-10-31)
- os       macOS Ventura 13.7.8
- system   x86_64, darwin20
- ui       X11
- language (EN)
- collate  en_US.UTF-8
- ctype    en_US.UTF-8
- tz       America/Los_Angeles
- date     2026-03-06
- pandoc   3.6.3 @ /Applications/Positron.app/Contents/Resources/app/quarto/bin/tools/x86_64/ (via rmarkdown)
- quarto   1.8.27 @ /Applications/Positron.app/Contents/Resources/app/quarto/bin/quarto
-
-─ Packages ───────────────────────────────────────────────────────────────────
- package              * version   date (UTC) lib source
- abind                  1.4-8     2024-09-12 [1] CRAN (R 4.5.0)
- annotate               1.88.0    2025-10-29 [1] Bioconductor 3.22 (R 4.5.1)
- AnnotationDbi          1.72.0    2025-10-29 [1] Bioconductor 3.22 (R 4.5.1)
- askpass                1.2.1     2024-10-04 [1] CRAN (R 4.5.0)
- backports              1.5.0     2024-05-23 [1] CRAN (R 4.5.0)
- BH                   * 1.90.0-1  2025-12-14 [1] CRAN (R 4.5.1)
- Biobase                2.70.0    2025-10-29 [1] https://bioc-release.r-universe.dev (R 4.5.2)
- BiocGenerics           0.56.0    2025-10-29 [1] Bioconductor 3.22 (R 4.5.1)
- BiocManager            1.30.27   2025-11-14 [1] CRAN (R 4.5.1)
- BiocParallel           1.44.0    2025-10-30 [1] Bioconductor 3.22 (R 4.5.1)
- Biostrings             2.78.0    2025-10-29 [1] https://bioc-release.r-universe.dev (R 4.5.2)
- bit                    4.6.0     2025-03-06 [1] CRAN (R 4.5.0)
- bit64                  4.6.0-1   2025-01-16 [1] CRAN (R 4.5.0)
- bitops                 1.0-9     2024-10-03 [1] CRAN (R 4.5.0)
- blob                   1.3.0     2026-01-14 [1] CRAN (R 4.5.1)
- broom                * 1.0.12    2026-01-27 [1] CRAN (R 4.5.1)
- bslib                  0.10.0    2026-01-26 [1] CRAN (R 4.5.1)
- cachem                 1.1.0     2024-05-16 [1] CRAN (R 4.5.0)
- car                    3.1-5     2026-02-03 [1] CRAN (R 4.5.1)
- carData                3.0-6     2026-01-30 [1] CRAN (R 4.5.1)
- caTools                1.18.3    2024-09-04 [1] CRAN (R 4.5.0)
- changepoint            2.3       2024-11-04 [1] CRAN (R 4.5.0)
- circlize               0.4.17    2025-12-08 [1] CRAN (R 4.5.1)
- cli                    3.6.5     2025-04-23 [1] CRAN (R 4.5.0)
- clue                   0.3-66    2024-11-13 [1] CRAN (R 4.5.0)
- cluster                2.1.8.2   2026-02-05 [1] CRAN (R 4.5.1)
- codetools              0.2-20    2024-03-31 [2] CRAN (R 4.5.2)
- colorRamps             2.3.4     2024-03-07 [1] CRAN (R 4.5.0)
- colorspace             2.1-2     2025-09-22 [1] CRAN (R 4.5.1)
- ComplexHeatmap         2.26.0    2025-10-29 [1] Bioconductor 3.22 (R 4.5.1)
- ConsensusClusterPlus   1.74.0    2025-10-29 [1] Bioconductor 3.22 (R 4.5.1)
- crayon                 1.5.3     2024-06-20 [1] CRAN (R 4.5.0)
- cyCombine            * 0.3.0     2026-02-05 [1] Github (biosurf/cyCombine@1035e32)
- CytoExploreR         * 1.1.0     2026-03-03 [1] Github (DillonHammill/CytoExploreR@71a8da6)
- cytolib                2.22.0    2025-10-29 [1] https://bioc-release.r-universe.dev (R 4.5.2)
- cytoMEM              * 1.14.0    2025-10-29 [1] Bioconduc~
- CytoML               * 2.22.0    2025-10-29 [1] https://bioc-release.r-universe.dev (R 4.5.2)
- CytoNorm             * 2.0.11    2026-02-05 [1] Github (saeyslab/CytoNorm@559640c)
- data.table             1.18.2.1  2026-01-27 [1] CRAN (R 4.5.1)
- DBI                    1.2.3     2024-06-02 [1] CRAN (R 4.5.0)
- DEoptimR               1.1-4     2025-07-27 [1] CRAN (R 4.5.1)
- devtools             * 2.4.6     2025-10-03 [1] CRAN (R 4.5.1)
- digest                 0.6.39    2025-11-19 [1] CRAN (R 4.5.1)
- doParallel             1.0.17    2022-02-07 [1] CRAN (R 4.5.0)
- dplyr                * 1.2.0     2026-02-03 [1] CRAN (R 4.5.1)
- edgeR                  4.8.2     2025-12-23 [1] https://bioc-release.r-universe.dev (R 4.5.2)
- ellipsis               0.3.2     2021-04-29 [1] CRAN (R 4.5.0)
- EmbedSOM             * 2.2       2026-03-03 [1] Github (exaexa/EmbedSOM@7ab25f2)
- evaluate               1.0.5     2025-08-27 [1] CRAN (R 4.5.1)
- farver                 2.1.2     2024-05-13 [1] CRAN (R 4.5.0)
- fastmap                1.2.0     2024-05-15 [1] CRAN (R 4.5.0)
- flowAI                 1.40.0    2025-10-29 [1] Bioconductor 3.22 (R 4.5.1)
- flowClust              3.48.0    2025-10-29 [1] https://bioc-release.r-universe.dev (R 4.5.2)
- flowCore             * 2.22.1    2026-01-01 [1] https://bioc-release.r-universe.dev (R 4.5.2)
- flowGate             * 1.10.0    2025-10-29 [1] Bioconductor 3.22 (R 4.5.1)
- FlowSOM              * 2.18.0    2025-10-29 [1] https://bioc-release.r-universe.dev (R 4.5.2)
- flowWorkspace        * 4.22.1    2026-01-01 [1] https://bioc-release.r-universe.dev (R 4.5.2)
- foreach                1.5.2     2022-02-02 [1] CRAN (R 4.5.0)
- Formula                1.2-5     2023-02-24 [1] CRAN (R 4.5.0)
- fs                     1.6.6     2025-04-12 [1] CRAN (R 4.5.0)
- genefilter             1.92.0    2025-10-29 [1] https://bioc-release.r-universe.dev (R 4.5.2)
- generics               0.1.4     2025-05-09 [1] CRAN (R 4.5.0)
- GetoptLong             1.1.0     2025-11-28 [1] CRAN (R 4.5.1)
- ggcyto               * 1.38.1    2026-01-04 [1] https://bioc-release.r-universe.dev (R 4.5.2)
- ggforce                0.5.0     2025-06-18 [1] CRAN (R 4.5.0)
- ggnewscale             0.5.2     2025-06-20 [1] CRAN (R 4.5.0)
- ggplot2              * 4.0.2     2026-02-03 [1] CRAN (R 4.5.1)
- ggpubr                 0.6.2     2025-10-17 [1] CRAN (R 4.5.1)
- ggridges               0.5.7     2025-08-27 [1] CRAN (R 4.5.1)
- ggsignif               0.6.4     2022-10-13 [1] CRAN (R 4.5.0)
- GlobalOptions          0.1.3     2025-11-28 [1] CRAN (R 4.5.1)
- glue                   1.8.0     2024-09-30 [1] CRAN (R 4.5.0)
- gplots                 3.3.0     2025-11-30 [1] CRAN (R 4.5.1)
- graph                  1.88.1    2025-12-07 [1] https://bioc-release.r-universe.dev (R 4.5.2)
- gridExtra              2.3       2017-09-09 [1] CRAN (R 4.5.0)
- gtable                 0.3.6     2024-10-25 [1] CRAN (R 4.5.0)
- gtools                 3.9.5     2023-11-20 [1] CRAN (R 4.5.0)
- hexbin                 1.28.5    2024-11-13 [1] CRAN (R 4.5.0)
- htmltools              0.5.9     2025-12-04 [1] CRAN (R 4.5.1)
- htmlwidgets            1.6.4     2023-12-06 [1] CRAN (R 4.5.0)
- httpuv                 1.6.16    2025-04-16 [1] CRAN (R 4.5.0)
- httr                   1.4.7     2023-08-15 [1] CRAN (R 4.5.0)
- httr2                * 1.2.2     2025-12-08 [1] CRAN (R 4.5.1)
- igraph               * 2.2.1     2025-10-27 [1] CRAN (R 4.5.1)
- IRanges                2.44.0    2025-10-29 [1] Bioconductor 3.22 (R 4.5.1)
- iterators              1.0.14    2022-02-05 [1] CRAN (R 4.5.0)
- jquerylib              0.1.4     2021-04-26 [1] CRAN (R 4.5.0)
- jsonlite               2.0.0     2025-03-27 [1] CRAN (R 4.5.0)
- KEGGREST               1.50.0    2025-10-29 [1] Bioconductor 3.22 (R 4.5.1)
- KernSmooth             2.23-26   2025-01-01 [2] CRAN (R 4.5.2)
- knitr                  1.51      2025-12-20 [1] CRAN (R 4.5.1)
- kohonen                3.0.13    2026-01-22 [1] CRAN (R 4.5.1)
- later                  1.4.7     2026-02-24 [1] CRAN (R 4.5.2)
- lattice                0.22-7    2025-04-02 [2] CRAN (R 4.5.2)
- lazyeval               0.2.2     2019-03-15 [1] CRAN (R 4.5.0)
- lifecycle              1.0.5     2026-01-08 [1] CRAN (R 4.5.1)
- limma                  3.66.0    2025-10-29 [1] https://bioc-release.r-universe.dev (R 4.5.2)
- locfit                 1.5-9.12  2025-03-05 [1] CRAN (R 4.5.0)
- lubridate            * 1.9.5     2026-02-04 [1] CRAN (R 4.5.1)
- magrittr               2.0.4     2025-09-12 [1] CRAN (R 4.5.1)
- MASS                   7.3-65    2025-02-28 [2] CRAN (R 4.5.2)
- Matrix               * 1.7-4     2025-08-28 [2] CRAN (R 4.5.2)
- MatrixGenerics         1.22.0    2025-10-29 [1] Bioconductor 3.22 (R 4.5.1)
- matrixStats            1.5.0     2025-01-07 [1] CRAN (R 4.5.0)
- memoise                2.0.1     2021-11-26 [1] CRAN (R 4.5.0)
- mgcv                   1.9-4     2025-11-07 [1] CRAN (R 4.5.1)
- mime                   0.13      2025-03-17 [1] CRAN (R 4.5.0)
- ncdfFlow             * 2.56.0    2025-10-29 [1] https://bioc-release.r-universe.dev (R 4.5.2)
- nlme                   3.1-168   2025-03-31 [2] CRAN (R 4.5.2)
- openCyto             * 2.22.0    2025-10-29 [1] https://bioc-release.r-universe.dev (R 4.5.2)
- openssl                2.3.5     2026-02-26 [1] CRAN (R 4.5.2)
- otel                   0.2.0     2025-08-29 [1] CRAN (R 4.5.1)
- pak                  * 0.9.2     2025-12-22 [1] CRAN (R 4.5.1)
- PeacoQC              * 1.20.0    2025-10-29 [1] Bioconductor 3.22 (R 4.5.1)
- pheatmap               1.0.13    2025-06-05 [1] CRAN (R 4.5.0)
- pillar                 1.11.1    2025-09-17 [1] CRAN (R 4.5.1)
- pkgbuild               1.4.8     2025-05-26 [1] CRAN (R 4.5.0)
- pkgconfig              2.0.3     2019-09-22 [1] CRAN (R 4.5.0)
- pkgload                1.5.0     2026-02-03 [1] CRAN (R 4.5.1)
- plotly               * 4.12.0    2026-01-24 [1] CRAN (R 4.5.1)
- plyr                   1.8.9     2023-10-02 [1] CRAN (R 4.5.0)
- png                    0.1-8     2022-11-29 [1] CRAN (R 4.5.0)
- polyclip               1.10-7    2024-07-23 [1] CRAN (R 4.5.0)
- promises               1.5.0     2025-11-01 [1] CRAN (R 4.5.1)
- purrr                * 1.2.1     2026-01-09 [1] CRAN (R 4.5.1)
- R6                     2.6.1     2025-02-15 [1] CRAN (R 4.5.0)
- rappdirs               0.3.4     2026-01-17 [1] CRAN (R 4.5.1)
- RBGL                   1.86.0    2025-10-29 [1] https://bioc-release.r-universe.dev (R 4.5.2)
- RColorBrewer           1.1-3     2022-04-03 [1] CRAN (R 4.5.0)
- Rcpp                   1.1.1     2026-01-10 [1] CRAN (R 4.5.1)
- remotes              * 2.5.0     2024-03-17 [1] CRAN (R 4.5.0)
- reshape2               1.4.5     2025-11-12 [1] CRAN (R 4.5.1)
- reticulate             1.45.0    2026-02-13 [1] CRAN (R 4.5.2)
- Rgraphviz              2.54.0    2025-10-29 [1] https://bioc-release.r-universe.dev (R 4.5.2)
- rhandsontable          0.3.8     2021-05-27 [1] CRAN (R 4.5.0)
- rjson                  0.2.23    2024-09-16 [1] CRAN (R 4.5.0)
- rlang                  1.1.7     2026-01-09 [1] CRAN (R 4.5.1)
- rmarkdown              2.30      2025-09-28 [1] CRAN (R 4.5.1)
- robustbase             0.99-7    2026-02-05 [1] CRAN (R 4.5.1)
- RProtoBufLib           2.22.0    2025-10-29 [1] https://bioc-release.r-universe.dev (R 4.5.2)
- RSpectra               0.16-2    2024-07-18 [1] CRAN (R 4.5.0)
- RSQLite                2.4.5     2025-11-30 [1] CRAN (R 4.5.1)
- rstatix                0.7.3     2025-10-18 [1] CRAN (R 4.5.1)
- rsvd                   1.0.5     2021-04-16 [1] CRAN (R 4.5.0)
- Rtsne                * 0.17      2023-12-07 [1] CRAN (R 4.5.0)
- S4Vectors              0.48.0    2025-10-29 [1] Bioconductor 3.22 (R 4.5.1)
- S7                     0.2.1     2025-11-14 [1] CRAN (R 4.5.1)
- sass                   0.4.10    2025-04-11 [1] CRAN (R 4.5.0)
- scales                 1.4.0     2025-04-24 [1] CRAN (R 4.5.0)
- Seqinfo                1.0.0     2025-10-29 [1] Bioconductor 3.22 (R 4.5.1)
- sessioninfo            1.2.3     2025-02-05 [1] CRAN (R 4.5.0)
- shape                  1.4.6.1   2024-02-23 [1] CRAN (R 4.5.0)
- shiny                  1.13.0    2026-02-20 [1] CRAN (R 4.5.2)
- statmod                1.5.1     2025-10-09 [1] CRAN (R 4.5.1)
- stringi                1.8.7     2025-03-27 [1] CRAN (R 4.5.0)
- stringr              * 1.6.0     2025-11-04 [1] CRAN (R 4.5.1)
- superheat            * 0.1.0     2017-02-04 [1] CRAN (R 4.5.0)
- survival               3.8-6     2026-01-16 [1] CRAN (R 4.5.1)
- sva                    3.58.0    2025-10-29 [1] Bioconductor 3.22 (R 4.5.1)
- tibble                 3.3.1     2026-01-11 [1] CRAN (R 4.5.1)
- tidyr                * 1.3.2     2025-12-19 [1] CRAN (R 4.5.1)
- tidyselect             1.2.1     2024-03-11 [1] CRAN (R 4.5.0)
- timechange             0.4.0     2026-01-29 [1] CRAN (R 4.5.1)
- tweenr                 2.0.3     2024-02-26 [1] CRAN (R 4.5.0)
- umap                   0.2.10.0  2023-02-01 [1] CRAN (R 4.5.0)
- usethis              * 3.2.1     2025-09-06 [1] CRAN (R 4.5.1)
- uwot                 * 0.2.4     2025-11-10 [1] CRAN (R 4.5.1)
- vctrs                  0.7.1     2026-01-23 [1] CRAN (R 4.5.1)
- viridisLite            0.4.3     2026-02-04 [1] CRAN (R 4.5.1)
- visNetwork             2.1.4     2025-09-04 [1] CRAN (R 4.5.1)
- withr                  3.0.2     2024-10-28 [1] CRAN (R 4.5.0)
- xfun                   0.56      2026-01-18 [1] CRAN (R 4.5.1)
- XML                    3.99-0.22 2026-02-10 [1] CRAN (R 4.5.2)
- xml2                 * 1.5.2     2026-01-17 [1] CRAN (R 4.5.1)
- xtable                 1.8-8     2026-02-22 [1] CRAN (R 4.5.2)
- XVector                0.50.0    2025-10-29 [1] https://bioc-release.r-universe.dev (R 4.5.2)
- yaml                   2.3.12    2025-12-10 [1] CRAN (R 4.5.1)
- zoo                    1.8-15    2025-12-15 [1] CRAN (R 4.5.1)
-
- [1] /Users/chouse/Library/R/x86_64/4.5/library
- [2] /Library/Frameworks/R.framework/Versions/4.5-x86_64/Resources/library
- * ── Packages attached to the search path.
-
-──────────────────────────────────────────────────────────────────────────────</code></pre>
+<pre><code>[1] "/Users/chouse/Library/R/x86_64/4.5/library/FlowSOM/extdata"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>extpath<span class="ot">&lt;-</span><span class="fu">file.path</span>(<span class="fu">system.file</span>(<span class="st">"extdata"</span>, <span class="at">package =</span> <span class="st">"FlowSOM"</span>))</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(extpath,<span class="at">full.names=</span><span class="cn">TRUE</span>, <span class="at">recursive =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/Users/chouse/Library/R/x86_64/4.5/library/FlowSOM/extdata/68983.fcs"       
+[2] "/Users/chouse/Library/R/x86_64/4.5/library/FlowSOM/extdata/gating.wsp"      
+[3] "/Users/chouse/Library/R/x86_64/4.5/library/FlowSOM/extdata/gatingResult.csv"
+[4] "/Users/chouse/Library/R/x86_64/4.5/library/FlowSOM/extdata/manualGating.xml"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(extpath,<span class="at">pattern =</span> <span class="st">".fcs"</span>,<span class="at">full.names=</span><span class="cn">TRUE</span>, <span class="at">recursive =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/Users/chouse/Library/R/x86_64/4.5/library/FlowSOM/extdata/68983.fcs"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flowWorkspace)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>extpath2<span class="ot">&lt;-</span><span class="fu">file.path</span>(<span class="fu">system.file</span>(<span class="st">"extdata"</span>, <span class="at">package =</span> <span class="st">"FlowSOM"</span>))</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(extpath2,<span class="at">full.names=</span><span class="cn">TRUE</span>, <span class="at">recursive =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/Users/chouse/Library/R/x86_64/4.5/library/FlowSOM/extdata/68983.fcs"       
+[2] "/Users/chouse/Library/R/x86_64/4.5/library/FlowSOM/extdata/gating.wsp"      
+[3] "/Users/chouse/Library/R/x86_64/4.5/library/FlowSOM/extdata/gatingResult.csv"
+[4] "/Users/chouse/Library/R/x86_64/4.5/library/FlowSOM/extdata/manualGating.xml"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(extpath2,<span class="at">pattern =</span> <span class="st">".fcs"</span>,<span class="at">full.names=</span><span class="cn">TRUE</span>, <span class="at">recursive =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/Users/chouse/Library/R/x86_64/4.5/library/FlowSOM/extdata/68983.fcs"</code></pre>
 </div>
 </div>
 
